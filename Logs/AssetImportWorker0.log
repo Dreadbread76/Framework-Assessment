@@ -167,3 +167,20 @@ Received Import Request.
 Start importing Assets/Scripts/RadixLSDBase10.cs using Guid(69e762842cec48d409a325c5f41022be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e80e17cbe83e14bb01c0e6b670577c95') in 0.004198 seconds
   Import took 0.006487 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 2601.048155 seconds.
+  path: Assets/Scripts/RadixLSDBase10.cs
+  artifactKey: Guid(69e762842cec48d409a325c5f41022be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/RadixLSDBase10.cs using Guid(69e762842cec48d409a325c5f41022be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '83fdb46c60bfb736b19d31ad45ed23cd') in 0.009078 seconds
+  Import took 0.014851 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.003941 seconds.
+  path: Assets/Scripts/RadixLSDBase10.cs
+  artifactKey: Guid(69e762842cec48d409a325c5f41022be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/RadixLSDBase10.cs using Guid(69e762842cec48d409a325c5f41022be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '83fdb46c60bfb736b19d31ad45ed23cd') in 0.004126 seconds
+  Import took 0.006480 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
