@@ -10,12 +10,21 @@ namespace GunGame.Inventory
         public int maxCapacity;
         public List<Gun> weapons;
         public Gun currentGun;
-
+        public Camera cam;
 
 
         private void Update()
         {
-            Ray ray
+            RaycastHit hit;
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                Gun currentGun = hit.transform.gameObject.GetComponent<Gun>();
+                
+
+            }
+
         }
     }
 }
