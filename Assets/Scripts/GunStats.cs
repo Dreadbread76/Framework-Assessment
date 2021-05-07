@@ -16,11 +16,10 @@ namespace GunGame.Guns
        
         [Header("Gun")]
         public int headshotMultiplier;
-        public int currentFireMode;
         public int burstSize;
         public int burstDelay;
         public float recoil;
-        public float weight;
+        public int weight;
         public float fireRate;
         public float spinTime;
         float currentSpinTime = 0;
@@ -34,16 +33,29 @@ namespace GunGame.Guns
         GameObject gunBarrel;
         GameObject bullet;
         public float reloadTime;
+        public int fullLoadSize;
         public int magSize;
-        public int magLeft;
+        int magLeft;
         public int carryAmmoMax;
-        public int carryAmmo;
+        int carryAmmo;
+
+        [Header("Mechanism")]
+        public int currentFireMode;
+        public bool fullAuto;
+        public bool semiAuto;
+        public bool burstFire;
+        public bool spinFire;
         
 
         bool reloading = false;
-        
+       
 
-        public void FullAuto(bool fullAuto, bool active)
+        private void OnEnable()
+        {
+
+        }
+        // Fully Automatic (Fires bullets so long as the button is held)
+        public void FullAuto(bool active)
         {
             
 
@@ -64,6 +76,7 @@ namespace GunGame.Guns
                 }
             }
         }
+        // Semi Automatic (1 shot every trigger pull)
         public void SemiAuto(bool semiAuto, bool active)
         {
             if (semiAuto)
@@ -86,6 +99,7 @@ namespace GunGame.Guns
 
             }
         }
+        // Fires a specified amount of bullets every time the trigger is pulled
         public void BurstFire(bool burstFire, bool active)
         {
             if (burstFire)
@@ -117,6 +131,7 @@ namespace GunGame.Guns
                 
             }
         }
+        // Has to spin up before firing 
         public void SpinFire(bool spinFire, bool active)
         {
             if (spinFire)
@@ -146,7 +161,7 @@ namespace GunGame.Guns
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.R) && !reloading && magLeft < magSize)
+            if (Input.GetKeyDown(KeyCode.R) && !reloading && magLeft < fullLoadSize)
             {
                 float reloadLeft = reloadTime;
                 reloading = true;
@@ -164,7 +179,18 @@ namespace GunGame.Guns
         }
         public void Reload()
         {
-            carryAmmo -= magLeft;
+            int shotsNeeded = magSize - magLeft;
+
+            if(shotsNeeded >= carryAmmo)
+            {
+               
+            }
+            else
+            {
+                carryAmmo -= shotsNeeded;
+                magLeft += shotsNeeded;
+            }
+            
             magLeft = magSize;
 
         }
