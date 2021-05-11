@@ -23,6 +23,10 @@ namespace GunGame.Inventory
         [Header("UI")]
         public Text capacityText;
         public Text pickupText;
+        public Text weaponNameText;
+        public Text magAmmoText;
+        public Text carryAmmoText;
+        public Text fireModeText;
 
 
         private void Start()

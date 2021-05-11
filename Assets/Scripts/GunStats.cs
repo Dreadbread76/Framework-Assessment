@@ -9,10 +9,7 @@ namespace GunGame.Guns
     public class GunStats : MonoBehaviour
     {
         [Header("UI")]
-        public Text weaponNameText;
-        public Text magAmmoText;
-        public Text carryAmmoText;
-        public Text fireModeText;
+        
        
         [Header("Gun")]
         public int headshotMultiplier;
