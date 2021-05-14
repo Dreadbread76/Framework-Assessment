@@ -19,6 +19,7 @@ namespace GunGame.Inventory
         [Header("Utility")]
         public Camera cam;
         public float pickupDist;
+        public Transform hands;
 
         [Header("UI")]
         public Text capacityText;
@@ -58,11 +59,11 @@ namespace GunGame.Inventory
 
                     if(selectedGun.weight + currentCapacity > maxCapacity)
                     {
-                        pickupText.text = selectedGun.name + " is too heavy!\nWeight: " + selectedGun.weight;
+                        pickupText.text = selectedGun.gunName + " is too heavy!\nWeight: " + selectedGun.weight;
                     }
                     else
                     {
-                        pickupText.text = "Press F to pick up " + selectedGun.name + "\nWeight: " + selectedGun.weight;
+                        pickupText.text = "Press F to pick up " + selectedGun.gunName + "\nWeight: " + selectedGun.weight;
 
                         if (Input.GetKeyDown(KeyCode.F))
                         {
@@ -70,7 +71,16 @@ namespace GunGame.Inventory
                             weapons.Add(selectedGun);
                             currentCapacity += selectedGun.weight;
                             UpdateCapacity();
+                            SwitchWeapon(weapons[weapons.Count -1] );
                             Destroy(selectedGun.gameObject);
+                            
+                        }
+
+                        if (Input.GetKeyDown(KeyCode.Backspace))
+                        {
+                            currentCapacity -= selectedGun.weight;
+                            UpdateCapacity();
+                            weapons.Remove(selectedGun);
                         }
 
                     }
@@ -89,10 +99,37 @@ namespace GunGame.Inventory
             }
 
         }
+
+        void SwitchWeapon(Gun weapon)
+        {
+            
+            if (currentGun != null)
+            {
+                Destroy(hands.GetChild(0));
+            }
+
+            currentGun = weapon;
+            
+            GameObject switchedGun = Instantiate(weapon.gameObject, hands.position, hands.rotation);
+            switchedGun.transform.SetParent(hands);
+            Rigidbody rigi = switchedGun.GetComponent<Rigidbody>();
+            rigi.constraints = RigidbodyConstraints.FreezeAll;
+       
+        }
+
+        void DropWeapon()
+        {
+            
+        }
         void UpdateCapacity()
         {
             capacityText.text = "Capacity: " + currentCapacity + "/" + maxCapacity;
            
+        }
+
+        void UpdateAmmo()
+        {
+            
         }
 
         

@@ -10,11 +10,16 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../FPS/Assets/FramedWok/Editor/PlayerController/PlayerControllerEditor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../FPS/Assets/FPS/Scripts/Player/Weaponry/PlayerWeapons.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/GunStats.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Gun.cs" />
+      <option value="$PROJECT_DIR$/../FPS/Assets/FPS/Scripts/Player/Weaponry/PlayerWeapons.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerInventory.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GunStats.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1sNVfowKe5Jc3Nd8HmLkYwT3s5p" />
@@ -23,6 +28,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.35383552" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -40,10 +47,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="13684">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="13684" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -61,6 +68,10 @@
       <updated>1620713142435</updated>
       <workItem from="1620713152698" duration="4000" />
       <workItem from="1620717661878" duration="853000" />
+      <workItem from="1620785409838" duration="285000" />
+      <workItem from="1620786953724" duration="63000" />
+      <workItem from="1620787088555" duration="1864000" />
+      <workItem from="1620961153580" duration="8429000" />
     </task>
     <servers />
   </component>

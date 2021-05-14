@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,15 +9,19 @@ namespace GunGame.Guns
 {
     public class GunStats : MonoBehaviour
     {
-        [Header("UI")]
+
+
+        [Header("Gun")] 
+        private GameObject gunModel;
+        public int weight;
+        public string gunName;
+      
         
-       
-        [Header("Gun")]
+        [Header("Damage")]
         public int headshotMultiplier;
         public int burstSize;
         public int burstDelay;
         public float recoil;
-        public int weight;
         public float fireRate;
         public float spinTime;
         float currentSpinTime = 0;
@@ -27,8 +32,8 @@ namespace GunGame.Guns
         public List<bool> fireModes = new List<bool>();
 
         [Header("Ammo")]
-        GameObject gunBarrel;
-        GameObject bullet;
+        public GameObject gunBarrel;
+        GameObject projectile;
         public float reloadTime;
         public int fullLoadSize;
         public int magSize;
@@ -45,11 +50,11 @@ namespace GunGame.Guns
         
 
         bool reloading = false;
-       
 
+      
         private void OnEnable()
         {
-
+            
         }
         // Fully Automatic (Fires bullets so long as the button is held)
         public void FullAuto(bool active)
@@ -202,7 +207,7 @@ namespace GunGame.Guns
             }
             if(rechamberTime == 0)
             {
-                Instantiate(bullet, gunBarrel.transform.position, gunBarrel.transform.rotation);
+                Instantiate(projectile, gunBarrel.transform.position, gunBarrel.transform.rotation);
                 rechamberTime = fireRate;
             }
            
