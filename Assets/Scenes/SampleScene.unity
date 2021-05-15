@@ -662,12 +662,15 @@ MonoBehaviour:
   recoil: 0
   fireRate: 0
   spinTime: 0
-  fireModes: 
+  burstTime: 0
+  fireModes: []
   gunBarrel: {fileID: 0}
   reloadTime: 0
   fullLoadSize: 0
   magSize: 0
+  magLeft: 0
   carryAmmoMax: 0
+  carryAmmo: 0
   currentFireMode: 0
   fullAuto: 0
   semiAuto: 0

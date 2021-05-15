@@ -11,14 +11,24 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapons/FireMode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../FPS/Assets/FramedWok/Editor/PlayerController/PlayerControllerEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../FPS/Assets/FPS/Scripts/Player/Weaponry/PlayerWeapons.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapons/ChargeUp.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Gun.cs" />
       <option value="$PROJECT_DIR$/../FPS/Assets/FPS/Scripts/Player/Weaponry/PlayerWeapons.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Gun.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/FireMode.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SemiAuto.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerInventory.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/BurstFire.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/FullAuto.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/ChargeUp.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/FireMode.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/BurstFire.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/FullAuto.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GunStats.cs" />
     </changedPaths>
   </component>
@@ -47,10 +57,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="13684">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="13684" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -72,6 +82,8 @@
       <workItem from="1620786953724" duration="63000" />
       <workItem from="1620787088555" duration="1864000" />
       <workItem from="1620961153580" duration="8429000" />
+      <workItem from="1621037320279" duration="6047000" />
+      <workItem from="1621049657604" duration="6331000" />
     </task>
     <servers />
   </component>

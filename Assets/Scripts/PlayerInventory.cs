@@ -8,7 +8,7 @@ namespace GunGame.Inventory
 {
     public class PlayerInventory : MonoBehaviour
     {
-
+#region Variables
         [Header("Inventory")]
         public int maxCapacity;
         int currentCapacity;
@@ -29,7 +29,7 @@ namespace GunGame.Inventory
         public Text carryAmmoText;
         public Text fireModeText;
 
-
+#endregion
         private void Start()
         {
             UpdateCapacity();
@@ -38,11 +38,6 @@ namespace GunGame.Inventory
 
         private void Update()
         {
-
-
-
-
-
 
 
 
@@ -114,7 +109,12 @@ namespace GunGame.Inventory
             switchedGun.transform.SetParent(hands);
             Rigidbody rigi = switchedGun.GetComponent<Rigidbody>();
             rigi.constraints = RigidbodyConstraints.FreezeAll;
-       
+
+            weaponNameText.text = currentGun.gunName;
+            magAmmoText.text = currentGun.magLeft.ToString();
+            carryAmmoText.text = currentGun.carryAmmo.ToString();
+            fireModeText.text = currentGun.currentFireMode.ToString();
+
         }
 
         void DropWeapon()

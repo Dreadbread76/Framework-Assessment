@@ -66,12 +66,16 @@ MonoBehaviour:
   recoil: 0
   fireRate: 0.4
   spinTime: 0
-  fireModes: 
+  burstTime: 0
+  fireModes:
+  - {fileID: 11400000, guid: 23cf8189f7ea2b3408d3fc6f9b613f96, type: 2}
   gunBarrel: {fileID: 2940941773486404587}
   reloadTime: 0.2
   fullLoadSize: 8
   magSize: 7
-  carryAmmoMax: 0
+  magLeft: 8
+  carryAmmoMax: 49
+  carryAmmo: 49
   currentFireMode: 0
   fullAuto: 0
   semiAuto: 1

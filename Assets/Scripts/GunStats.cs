@@ -26,10 +26,10 @@ namespace GunGame.Guns
         public float spinTime;
         float currentSpinTime = 0;
         float rechamberTime = 0;
-        float burstTime = 0;
+        public float burstTime = 0;
         int burstLeft;
 
-        public List<bool> fireModes = new List<bool>();
+        public List<FireMode> fireModes = new List<FireMode>();
 
         [Header("Ammo")]
         public GameObject gunBarrel;
@@ -37,129 +37,22 @@ namespace GunGame.Guns
         public float reloadTime;
         public int fullLoadSize;
         public int magSize;
-        int magLeft;
+        public int magLeft;
         public int carryAmmoMax;
-        int carryAmmo;
+        public int carryAmmo;
 
         [Header("Mechanism")]
         public int currentFireMode;
-        public bool fullAuto;
-        public bool semiAuto;
-        public bool burstFire;
-        public bool spinFire;
-        
 
         bool reloading = false;
 
       
-        private void OnEnable()
+        private void Start()
         {
             
         }
-        // Fully Automatic (Fires bullets so long as the button is held)
-        public void FullAuto(bool active)
-        {
-            
-
-            if (fullAuto)
-            {
-                fireModes.Add(fullAuto);
-                
-            }
-            else
-            {
-                fireModes.Remove(fullAuto);
-            }
-            if (active)
-            {
-                if (Input.GetMouseButton(0))
-                {
-                    FireBullet();
-                }
-            }
-        }
-        // Semi Automatic (1 shot every trigger pull)
-        public void SemiAuto(bool semiAuto, bool active)
-        {
-            if (semiAuto)
-            {
-                fireModes.Add(semiAuto);
-            }
-            else
-            {
-                fireModes.Remove(semiAuto);
-            }
-            if (active)
-            {
-
-                if (Input.GetMouseButtonDown(0))
-                {
-
-                    FireBullet();
-
-                }
-
-            }
-        }
-        // Fires a specified amount of bullets every time the trigger is pulled
-        public void BurstFire(bool burstFire, bool active)
-        {
-            if (burstFire)
-            {
-                fireModes.Add(burstFire);
-            }
-            else
-            {
-                fireModes.Remove(burstFire);
-            }
-            if (active)
-            {
-                if(burstTime <= 0)
-                {
-                    if (Input.GetMouseButtonDown(0))
-                    {
-                        burstLeft = burstSize;
-                        burstTime = burstDelay;
-
-                        if (burstLeft > 0)
-                        {
-                            FireBullet();
-                            burstLeft--;
-                        }
-                        
-
-                    }
-                }
-                
-            }
-        }
-        // Has to spin up before firing 
-        public void SpinFire(bool spinFire, bool active)
-        {
-            if (spinFire)
-            {
-                fireModes.Add(spinFire);
-            }
-            else
-            {
-                fireModes.Remove(spinFire);
-            }
-            if (active)
-            {
-                if (Input.GetMouseButton(0))
-                {
-                    if(currentSpinTime < spinTime)
-                    {
-                        currentSpinTime += Time.deltaTime;
-                    }
-                    else
-                    {
-                        FireBullet();
-                    }
-                    
-                }
-            }
-        }
+       
+       
 
         private void Update()
         {
@@ -213,5 +106,7 @@ namespace GunGame.Guns
            
         }
     }
+
+    
 }
 
