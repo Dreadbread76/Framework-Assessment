@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 
@@ -96,10 +97,13 @@ namespace GunGame.Guns
 
             while(rechamberTime > 0)
             {
+                Debug.Log(rechamberTime);
                 rechamberTime -= Time.deltaTime;
             }
             if(rechamberTime == 0)
             {
+                Debug.Log("bulletShot");
+                
                 Instantiate(projectile, gunBarrel.transform.position, gunBarrel.transform.rotation);
                 rechamberTime = fireRate;
             }

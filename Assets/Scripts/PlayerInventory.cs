@@ -38,7 +38,12 @@ namespace GunGame.Inventory
 
         private void Update()
         {
-
+            if (Input.GetKeyDown(KeyCode.Backspace) && currentGun != null)
+            {
+                currentCapacity -= selectedGun.weight;
+                UpdateCapacity();
+                weapons.Remove(currentGun);
+            }
 
 
             RaycastHit hit;
@@ -63,23 +68,18 @@ namespace GunGame.Inventory
                         if (Input.GetKeyDown(KeyCode.F))
                         {
                             //Add the weapon to the inventory
-                            weapons.Add(selectedGun);
-                            currentCapacity += selectedGun.weight;
-                            UpdateCapacity();
-                            SwitchWeapon(weapons[weapons.Count -1] );
-                            Destroy(selectedGun.gameObject);
+                            PickupWeapon(selectedGun);
                             
+                          
+
+
                         }
 
-                        if (Input.GetKeyDown(KeyCode.Backspace))
-                        {
-                            currentCapacity -= selectedGun.weight;
-                            UpdateCapacity();
-                            weapons.Remove(selectedGun);
-                        }
+                       
 
                     }
                     
+                   
 
 
                    
@@ -110,11 +110,34 @@ namespace GunGame.Inventory
             Rigidbody rigi = switchedGun.GetComponent<Rigidbody>();
             rigi.constraints = RigidbodyConstraints.FreezeAll;
 
+            SetWeaponText();
+
+            
+        }
+
+        void PickupWeapon(Gun weapon)
+        {
+            weapons.Add(weapon);
+            currentCapacity += weapon.weight;
+            UpdateCapacity();
+            currentGun = weapon;
+            
+            
+            weapon.transform.position = hands.position;
+            weapon.transform.rotation = hands.rotation;
+            weapon.transform.SetParent(hands);
+            Rigidbody rigi = weapon.GetComponent<Rigidbody>();
+            rigi.constraints = RigidbodyConstraints.FreezeAll;
+            
+            
+        }
+
+        void SetWeaponText()
+        {
             weaponNameText.text = currentGun.gunName;
             magAmmoText.text = currentGun.magLeft.ToString();
             carryAmmoText.text = currentGun.carryAmmo.ToString();
             fireModeText.text = currentGun.currentFireMode.ToString();
-
         }
 
         void DropWeapon()

@@ -672,10 +672,6 @@ MonoBehaviour:
   carryAmmoMax: 0
   carryAmmo: 0
   currentFireMode: 0
-  fullAuto: 0
-  semiAuto: 0
-  burstFire: 0
-  spinFire: 0
 --- !u!1 &1257659509
 GameObject:
   m_ObjectHideFlags: 0

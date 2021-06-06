@@ -22,14 +22,15 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Gun.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/FireMode.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SemiAuto.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/PlayerInventory.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/BurstFire.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/FullAuto.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/ChargeUp.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/FireMode.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/BurstFire.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/FullAuto.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/MouseLook.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GunStats.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PlayerInventory.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1sNVfowKe5Jc3Nd8HmLkYwT3s5p" />
@@ -46,11 +47,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor &amp; Play">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="12260">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="12260" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -84,6 +85,8 @@
       <workItem from="1620961153580" duration="8429000" />
       <workItem from="1621037320279" duration="6047000" />
       <workItem from="1621049657604" duration="6331000" />
+      <workItem from="1621328498692" duration="606000" />
+      <workItem from="1622443792938" duration="3656000" />
     </task>
     <servers />
   </component>

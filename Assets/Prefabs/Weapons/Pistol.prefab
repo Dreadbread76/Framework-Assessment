@@ -68,7 +68,7 @@ MonoBehaviour:
   spinTime: 0
   burstTime: 0
   fireModes:
-  - {fileID: 11400000, guid: 23cf8189f7ea2b3408d3fc6f9b613f96, type: 2}
+  - {fileID: 11400000, guid: 9717504a65d7a1c4f8ea554ff04d0d63, type: 2}
   gunBarrel: {fileID: 2940941773486404587}
   reloadTime: 0.2
   fullLoadSize: 8
@@ -77,10 +77,6 @@ MonoBehaviour:
   carryAmmoMax: 49
   carryAmmo: 49
   currentFireMode: 0
-  fullAuto: 0
-  semiAuto: 1
-  burstFire: 0
-  spinFire: 0
 --- !u!54 &1556876302
 Rigidbody:
   m_ObjectHideFlags: 0

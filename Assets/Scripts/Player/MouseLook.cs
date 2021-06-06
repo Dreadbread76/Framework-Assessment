@@ -18,6 +18,8 @@ public class MouseLook : MonoBehaviour
     private float _rotY;
     private void Start()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         if (GetComponent<Rigidbody>())
         {
             GetComponent<Rigidbody>().freezeRotation = true;
