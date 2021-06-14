@@ -7,7 +7,8 @@ namespace GunGame.Guns
 {
     public abstract class FireMode : ScriptableObject
     {
-        public abstract void FireType(GunStats gunStats, int burstSize, float fireRate);
+        public abstract string modeName { get; }
+        public abstract void FireType(GunStats gunStats);
 
     }
 }

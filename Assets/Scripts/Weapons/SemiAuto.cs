@@ -3,27 +3,27 @@ using System.Collections.Generic;
 using GunGame.Guns;
 using UnityEngine;
 
-public class SemiAuto : GunStats
+namespace GunGame.Guns
 {
-    // Start is called before the first frame update
-    void Start()
+    [CreateAssetMenu(menuName = "Guns/Fire Mode/Semi Auto")]
+    public class SemiAuto : FireMode
     {
-        
-    }
- // Semi Automatic (1 shot every trigger pull)
-    public void FireMode(bool active)
-    {
+
+        public override string modeName { get { return "Semi Auto"; } }
       
-        if (active)
+        // Semi Automatic (1 shot every trigger pull)
+        public override void FireType(GunStats gunStats)
         {
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !gunStats.rechambering && !gunStats.reloading)
             {
 
-                FireBullet();
+                gunStats.StartCoroutine("FireBullet");
 
             }
 
+            
         }
     }
 }
+

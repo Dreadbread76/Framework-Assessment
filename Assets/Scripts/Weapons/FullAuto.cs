@@ -5,21 +5,22 @@ using UnityEngine;
 
 namespace GunGame.Guns
 {
-    [CreateAssetMenu(menuName = "Guns/Fire Mode/FullAuto")]
+    [CreateAssetMenu(menuName = "Guns/Fire Mode/Full Auto")]
     public class FullAuto : FireMode
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
+        public override string modeName { get { return "Full Auto"; } }
+       
 
         // Fully Automatic (Fires bullets so long as the button is held)
-        public override void FireType(GunStats gunStats, int burstSize, float fireRate )
+        public override void FireType(GunStats gunStats)
         {
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0) && !gunStats.rechambering && !gunStats.reloading)
             {
-                gunStats.FireBullet();
+               
+                   
+                    gunStats.StartCoroutine("FireBullet");
+              
+                
             }
 
         }

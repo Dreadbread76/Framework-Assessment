@@ -4,19 +4,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using GunGame.Guns;
+using GunGame.Inventory;
 
 
 namespace GunGame.Guns
 {
     public class GunStats : MonoBehaviour
     {
-
+        #region Variables
 
         [Header("Gun")] 
         private GameObject gunModel;
         public int weight;
         public string gunName;
-      
+        public PlayerInventory inv;
         
         [Header("Damage")]
         public int headshotMultiplier;
@@ -26,7 +28,7 @@ namespace GunGame.Guns
         public float fireRate;
         public float spinTime;
         float currentSpinTime = 0;
-        float rechamberTime = 0;
+        public bool rechambering = false;
         public float burstTime = 0;
         int burstLeft;
 
@@ -34,83 +36,126 @@ namespace GunGame.Guns
 
         [Header("Ammo")]
         public GameObject gunBarrel;
-        GameObject projectile;
+        [SerializeField]
+        private GameObject projectile;
         public float reloadTime;
         public int fullLoadSize;
+        public int shotAmount;
         public int magSize;
-        public int magLeft;
+        public int currentMag;
         public int carryAmmoMax;
         public int carryAmmo;
 
         [Header("Mechanism")]
         public int currentFireMode;
 
-        bool reloading = false;
+        public bool reloading = false;
 
-      
-        private void Start()
-        {
-            
-        }
-       
-       
-
+        #endregion
+        #region Update
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.R) && !reloading && magLeft < fullLoadSize)
+            // Change Weapon Mode
+            if (Input.GetKeyDown(KeyCode.M))
             {
-                float reloadLeft = reloadTime;
-                reloading = true;
-
-                if (reloadLeft > 0)
-                {
-                    reloadLeft -= Time.deltaTime;
-                }
-                else
-                {
-                    reloading = false;
-                    Reload();
-                }
+                UpdateMode();
+            }
+            // Reload Weapon
+            if (Input.GetKeyDown(KeyCode.R) && !reloading && currentMag < fullLoadSize)
+            {
+                StartCoroutine(Reloading());
             }
         }
+        #endregion
+        #region Reloading
         public void Reload()
         {
-            int shotsNeeded = magSize - magLeft;
-
-            if(shotsNeeded >= carryAmmo)
+            // if there is enough ammo to fill the magazine
+            if(carryAmmo >= magSize)
             {
-               
+                // Add bullets and count remainder
+                currentMag += magSize;
+                carryAmmo -= magSize;
+                int remainder =  currentMag % fullLoadSize;
+                Debug.Log(remainder);
+
+                // If the remainder is the same as the mag size, simply add the mag size
+                if(remainder == magSize)
+                {
+                    currentMag += magSize;
+                    carryAmmo -= magSize;
+                }
+
+                // Take away the extra remainder of bullets from the mag and shift it to the reserve ammo
+                currentMag -= remainder;
+                carryAmmo += remainder;
+            }
+            //if there isn't enough ammo to fill the magazine
+            else
+            {
+                // Add the remaining ammo
+                magSize += carryAmmo;
+                carryAmmo = 0;
+            }
+           
+
+            // Update the Clip and Ammo to match the capacity
+            inv.UpdateClip();
+            inv.UpdateAmmo();
+        }
+        #endregion
+        #region Fire Mode
+        // Get the current fire mode
+        public void GunStatsMain()
+        {
+            fireModes[currentFireMode].FireType(this);
+        }
+        // Change fire mode
+        public void UpdateMode()
+        {
+            if (currentFireMode < fireModes.Count - 1)
+            {
+                currentFireMode++;
+                inv.UpdateFireMode();
             }
             else
             {
-                carryAmmo -= shotsNeeded;
-                magLeft += shotsNeeded;
+                currentFireMode = 0;
+                inv.UpdateFireMode();
             }
-            
-            magLeft = magSize;
-
         }
-      
-        public void FireBullet()
+        #endregion
+        #region Fire Bullet
+        //Shoot bullet
+        public IEnumerator FireBullet()
         {
             
-
-            while(rechamberTime > 0)
-            {
-                Debug.Log(rechamberTime);
-                rechamberTime -= Time.deltaTime;
-            }
-            if(rechamberTime == 0)
+            if (currentMag > 0)
             {
                 Debug.Log("bulletShot");
-                
+                rechambering = true;
                 Instantiate(projectile, gunBarrel.transform.position, gunBarrel.transform.rotation);
-                rechamberTime = fireRate;
+                currentMag -= 1;
+                inv.UpdateClip();
+                yield return new WaitForSeconds(fireRate);
+                rechambering = false;
+                yield return null;
             }
-           
+
         }
+        #endregion
+        #region ReloadTimer
+        IEnumerator Reloading()
+        {
+            reloading = true;
+            yield return new WaitForSeconds(reloadTime);
+            reloading = false;
+            Reload();
+            yield return null;
+        }
+        #endregion
     }
 
-    
+
 }
 

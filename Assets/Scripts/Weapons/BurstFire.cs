@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using GunGame.Guns;
 using UnityEngine;
-
+/* 
 public class BurstFire : FireMode
 {
-    
+   
     private int burstLeft;
     // Start is called before the first frame update
     
@@ -34,4 +34,6 @@ public class BurstFire : FireMode
        
        
     }
+    
 }
+*/

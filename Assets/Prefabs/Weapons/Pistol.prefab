@@ -60,23 +60,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weight: 1
   gunName: M1911
+  inv: {fileID: 0}
   headshotMultiplier: 0
   burstSize: 0
   burstDelay: 0
   recoil: 0
-  fireRate: 0.4
+  fireRate: 0.2
   spinTime: 0
+  rechambering: 0
   burstTime: 0
   fireModes:
-  - {fileID: 11400000, guid: 9717504a65d7a1c4f8ea554ff04d0d63, type: 2}
+  - {fileID: 11400000, guid: 382c0aa53cad0d04ca8071c17fafa1bf, type: 2}
   gunBarrel: {fileID: 2940941773486404587}
-  reloadTime: 0.2
+  projectile: {fileID: 4251116550376978439, guid: 06ba8fa3dde1970419ba7683e2d16c3e, type: 3}
+  reloadTime: 3
   fullLoadSize: 8
+  shotAmount: 0
   magSize: 7
-  magLeft: 8
+  currentMag: 7
   carryAmmoMax: 49
   carryAmmo: 49
   currentFireMode: 0
+  reloading: 0
 --- !u!54 &1556876302
 Rigidbody:
   m_ObjectHideFlags: 0
