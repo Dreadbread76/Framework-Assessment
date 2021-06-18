@@ -1,16 +1,25 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RadixLSDBase10 : MonoBehaviour
+public class RadixLSDBase10 : IComparable<RadixLSDBase10>
 {
 
     int radix = 10;
     int exponent = 1;
     int[] passes;
     int[] output;
-   
 
+    public int CompareTo(RadixLSDBase10 other)
+    {
+        // If other is not a valid object reference, this instance is greater.
+        if (other == null) return 1;
+
+        // The temperature comparison depends on the comparison of
+        // the underlying Double values.
+        return minValue.CompareTo(other.minValue);
+    }
     void RadixLSD10(int[] value)
     {
         int minValue = value[0];
@@ -79,5 +88,32 @@ public class RadixLSDBase10 : MonoBehaviour
         }
         return(value);
     }
-   
+    protected int minValue = 0;
+
+    
+
+    public int Minimum
+    {
+        get
+        {
+            return minValue;
+        }
+        set
+        {
+            if (value < 0)
+            {
+                Debug.Log("Lets keep things above 0 for simplicities sake");
+            }
+            else
+            {
+                minValue = value;
+            }
+        }
+    }
+
+    public RadixLSDBase10(int minimum)
+    {
+        this.Minimum = minimum;
+    }
+
 }

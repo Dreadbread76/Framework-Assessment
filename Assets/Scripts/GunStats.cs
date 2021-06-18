@@ -15,16 +15,22 @@ namespace GunGame.Guns
         #region Variables
 
         [Header("Gun")] 
+        [SerializeField]
         private GameObject gunModel;
         public int weight;
         public string gunName;
         public PlayerInventory inv;
         
+        
         [Header("Damage")]
         public int headshotMultiplier;
         public int burstSize;
         public int burstDelay;
-        public float recoil;
+        [SerializeField]
+        public Vector3 recoil;
+        public Vector3 startingRot;
+        public float recoilCompMulti;
+        public float bulletVelocity;
         public float fireRate;
         public float spinTime;
         float currentSpinTime = 0;
@@ -33,6 +39,7 @@ namespace GunGame.Guns
         int burstLeft;
 
         public List<FireMode> fireModes = new List<FireMode>();
+
 
         [Header("Ammo")]
         public GameObject gunBarrel;
@@ -48,10 +55,11 @@ namespace GunGame.Guns
 
         [Header("Mechanism")]
         public int currentFireMode;
-
+        
+        public Camera cam;
         public bool reloading = false;
-
         #endregion
+      
         #region Update
         private void Update()
         {
@@ -65,6 +73,8 @@ namespace GunGame.Guns
             {
                 StartCoroutine(Reloading());
             }
+            
+
         }
         #endregion
         #region Reloading
@@ -100,8 +110,12 @@ namespace GunGame.Guns
            
 
             // Update the Clip and Ammo to match the capacity
-            inv.UpdateClip();
-            inv.UpdateAmmo();
+            if(inv != null)
+            {
+                inv.UpdateClip();
+                inv.UpdateAmmo();
+            }
+           
         }
         #endregion
         #region Fire Mode
@@ -116,12 +130,20 @@ namespace GunGame.Guns
             if (currentFireMode < fireModes.Count - 1)
             {
                 currentFireMode++;
-                inv.UpdateFireMode();
+
+               
+                if (inv != null)
+                {
+                    inv.UpdateFireMode();
+                }
             }
             else
             {
                 currentFireMode = 0;
-                inv.UpdateFireMode();
+                if (inv != null)
+                {
+                    inv.UpdateFireMode();
+                }
             }
         }
         #endregion
@@ -130,6 +152,7 @@ namespace GunGame.Guns
         public IEnumerator FireBullet()
         {
             
+
             if (currentMag > 0)
             {
                 Debug.Log("bulletShot");
@@ -137,7 +160,13 @@ namespace GunGame.Guns
                 Instantiate(projectile, gunBarrel.transform.position, gunBarrel.transform.rotation);
                 currentMag -= 1;
                 inv.UpdateClip();
+
+                //Recoil
+                cam.transform.localEulerAngles += recoil;
+
+                //Wait Rate of Fire Delay
                 yield return new WaitForSeconds(fireRate);
+                //Ready to fire again
                 rechambering = false;
                 yield return null;
             }
@@ -148,8 +177,10 @@ namespace GunGame.Guns
         IEnumerator Reloading()
         {
             reloading = true;
+            //Wait reload time
             yield return new WaitForSeconds(reloadTime);
             reloading = false;
+            //Add bullets
             Reload();
             yield return null;
         }

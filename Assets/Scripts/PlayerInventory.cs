@@ -22,7 +22,7 @@ namespace GunGame.Inventory
         public float pickupDist;
         public Transform hands;
         [SerializeField]
-        public float gunThrowMulti;
+        public float gunThrowVelocity;
 
         [Header("UI")]
         public Text capacityText;
@@ -119,7 +119,7 @@ namespace GunGame.Inventory
                     //Hide gun 1 
                     currentGun.gameObject.SetActive(false);
                 }
-                
+                DetachCam();
 
                 //Set index to 0
                 gunIndex = 0;
@@ -127,6 +127,7 @@ namespace GunGame.Inventory
 
                 //Show gun 2
                 currentGun.gameObject.SetActive(true);
+                AttachCam();
             }
             // If it isn't
             else
@@ -137,11 +138,14 @@ namespace GunGame.Inventory
                     currentGun.gameObject.SetActive(false);
                 }
                 //Next gun in index
+                DetachCam();
+
                 gunIndex++;
                 currentGun = weapons[gunIndex];
 
                 //Show gun 2
                 currentGun.gameObject.SetActive(true);
+                AttachCam();
             }
 
         }
@@ -152,10 +156,12 @@ namespace GunGame.Inventory
             // If the player has a gun in hand, put it away
             if (currentGun)
             {
+                DetachCam();
                 currentGun.gameObject.SetActive(false);
             }
             // Add picked up weapon to inventory
             weapons.Add(weapon);
+            
 
             // Add weight from new weapon
             currentCapacity += weapon.weight;
@@ -163,6 +169,7 @@ namespace GunGame.Inventory
 
             // Set the current weapon to the new weapon
             currentGun = weapon;
+            AttachCam();
             gunIndex = weapons.Count -1;
             currentGun.inv = this;
             SetWeaponText();
@@ -191,7 +198,8 @@ namespace GunGame.Inventory
             rigi.constraints = RigidbodyConstraints.None;
 
             //Chuck gun forward
-            rigi.AddRelativeForce(0,0,currentGun.weight / gunThrowMulti);
+            rigi.AddRelativeForce(0,0,currentGun.weight / gunThrowVelocity);
+            DetachCam();
 
             //Change Weapons
             weapons.Remove(currentGun);
@@ -204,6 +212,7 @@ namespace GunGame.Inventory
             {
                 SwitchWeapon(true);
                 currentGun = weapons[gunIndex];
+                AttachCam();
             }
             SetWeaponText();
         }
@@ -254,7 +263,15 @@ namespace GunGame.Inventory
 
         }
         #endregion
-
+        public void AttachCam()
+        {
+            currentGun.cam = cam;
+        }
+        public void DetachCam()
+        {
+            currentGun.cam = null;
+        }
     }
+
 }
 

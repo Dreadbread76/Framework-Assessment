@@ -58,13 +58,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8feb19371936e4e9382303efc2fd1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunModel: {fileID: 2941717572062510571}
   weight: 1
   gunName: M1911
   inv: {fileID: 0}
   headshotMultiplier: 0
   burstSize: 0
   burstDelay: 0
-  recoil: 0
+  recoil: {x: 5, y: 5, z: 0}
+  recoilCompMulti: 1
+  bulletVelocity: 0
   fireRate: 0.2
   spinTime: 0
   rechambering: 0

@@ -75,13 +75,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8feb19371936e4e9382303efc2fd1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunModel: {fileID: 7958089305906587812}
   weight: 2
   gunName: MAC-10
   inv: {fileID: 0}
   headshotMultiplier: 0
   burstSize: 0
   burstDelay: 0
-  recoil: 0
+  recoil: {x: 5, y: 5, z: 0}
+  recoilCompMulti: 0
+  bulletVelocity: 0
   fireRate: 0.1
   spinTime: 0
   rechambering: 0
@@ -214,19 +217,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400018, guid: 11604b6592771e049af136d2cae807b4, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.70710653
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 400018, guid: 11604b6592771e049af136d2cae807b4, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400018, guid: 11604b6592771e049af136d2cae807b4, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.70710707
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 400018, guid: 11604b6592771e049af136d2cae807b4, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400018, guid: 11604b6592771e049af136d2cae807b4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
