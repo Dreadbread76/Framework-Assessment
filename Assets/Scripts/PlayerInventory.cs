@@ -4,8 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using GunGame.Guns;
 
+
+
+
+/// <summary>
+/// Any code pertaining to the inventory
+/// </summary>
 namespace GunGame.Inventory
 {
+
+    /// <summary>
+    /// The inventory management for the player
+    /// </summary>
     public class PlayerInventory : MonoBehaviour
     {
         #region Variables
@@ -109,6 +119,10 @@ namespace GunGame.Inventory
         }
         #endregion
         #region Switch Weapons
+        /// <summary>
+        /// The switching of the  one weapon to another
+        /// </summary>
+        /// <param name="removingGun"> Whter the weapon is being switched</param>
         void SwitchWeapon(bool removingGun)
         {
             // If the gun index is about to exceed the count
@@ -151,6 +165,11 @@ namespace GunGame.Inventory
         }
         #endregion
         #region Pickup Weapon
+
+        /// <summary>
+        /// Picking up the selected weapon
+        /// </summary>
+        /// <param name="weapon"> The weapon being picked up</param>
         void PickupWeapon(Gun weapon)
         {
             // If the player has a gun in hand, put it away
@@ -185,6 +204,11 @@ namespace GunGame.Inventory
         }
         #endregion
         #region Drop Weapon
+
+        /// <summary>
+        /// The dropping of the held weapon
+        /// </summary>
+        /// <param name="weapon"> The weapon being dropped</param>
         void DropWeapon(Gun weapon)
         {
 
@@ -218,6 +242,10 @@ namespace GunGame.Inventory
         }
         #endregion
         #region UI
+
+        /// <summary>
+        /// Set the stat texts for the weapons
+        /// </summary>
         void SetWeaponText()
         {
 
@@ -238,35 +266,53 @@ namespace GunGame.Inventory
                 fireModeText.text = "";
             }
         }
-
+        /// <summary>
+        /// Update the weight capacity ui
+        /// </summary>
         void UpdateCapacity()
         {
             // Refresh the Weight on the UI
             capacityText.text = "Capacity: " + currentCapacity + "/" + maxCapacity;
            
         }
-        
+        /// <summary>
+        /// Update the clip capacity ui
+        /// </summary>
         public void UpdateClip()
         {
             // Refresh the Mag Capacity on the UI
             magAmmoText.text = currentGun.currentMag.ToString();
         }
+        /// <summary>
+        /// Update the reserve ammo capacity ui
+        /// </summary>
         public void UpdateAmmo()
         {
             // Refresh the Reserve Ammo Capacity on the UI
             carryAmmoText.text = currentGun.carryAmmo.ToString();
         }
+
+        /// <summary>
+        /// Update the fire mode ui
+        /// </summary>
         public void UpdateFireMode()
         {
             // Refresh the Fire Mode on the UI
             fireModeText.text = currentGun.fireModes[currentGun.currentFireMode].modeName;
 
         }
+        /// <summary>
+        /// Attach the players camera
+        /// </summary>
         #endregion
         public void AttachCam()
         {
             currentGun.cam = cam;
         }
+
+        /// <summary>
+        /// Detach the players camera
+        /// </summary>
         public void DetachCam()
         {
             currentGun.cam = null;

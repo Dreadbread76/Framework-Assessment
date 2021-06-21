@@ -4,16 +4,28 @@ using UnityEngine;
 
 public class FibonacciSearch : MonoBehaviour
 {
- 
 
-    // Function to find minimum
-    // of two elements
+
+ 
+    /// <summary>
+    ///  Function to find minimum of two elements
+    /// </summary>
+    /// <param name="x">first value</param>
+    /// <param name="y">second value</param>
+    /// <returns></returns>
     public static int min(int x, int y)
     {
         return (x <= y) ? x : y;
     }
 
-    // Returns index of x if present, else returns -1 
+   
+    /// <summary>
+    /// Main Search Formula
+    /// </summary>
+    /// <param name="array"></param>
+    /// <param name="final"></param>
+    /// <param name="gap"></param>
+    /// <returns> index of x if present, else returns -1 </returns>
     public static int FibonacciSearchMain(int[] array, int final,
                                          int gap)
     {
@@ -69,7 +81,9 @@ public class FibonacciSearch : MonoBehaviour
         return -1;
     }
 
-    // Entries
+    /// <summary>
+    /// The values to be used in the search
+    /// </summary>
     public static void Values()
     {
         int[] searchArray = { 11, 33,54,56,59,91,105 };

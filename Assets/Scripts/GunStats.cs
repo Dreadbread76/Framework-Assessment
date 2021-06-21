@@ -7,9 +7,14 @@ using UnityEngine.UI;
 using GunGame.Guns;
 using GunGame.Inventory;
 
-
+/// <summary>
+/// Any code pertaining to gun weapons systems
+/// </summary>
 namespace GunGame.Guns
 {
+    /// <summary>
+    /// The stats and functionality of the gun
+    /// </summary>
     public class GunStats : MonoBehaviour
     {
         #region Variables
@@ -78,6 +83,10 @@ namespace GunGame.Guns
         }
         #endregion
         #region Reloading
+
+        /// <summary>
+        /// The removing of ammo from the reserve ammo and adding of ammo to the clip
+        /// </summary>
         public void Reload()
         {
             // if there is enough ammo to fill the magazine
@@ -119,12 +128,16 @@ namespace GunGame.Guns
         }
         #endregion
         #region Fire Mode
-        // Get the current fire mode
+        /// <summary>
+        /// Get the current fire mode
+        /// </summary>
         public void GunStatsMain()
         {
             fireModes[currentFireMode].FireType(this);
         }
-        // Change fire mode
+        /// <summary>
+        /// Change fire mode
+        /// </summary>
         public void UpdateMode()
         {
             if (currentFireMode < fireModes.Count - 1)
@@ -148,7 +161,11 @@ namespace GunGame.Guns
         }
         #endregion
         #region Fire Bullet
-        //Shoot bullet
+        
+        /// <summary>
+        /// Shoot bullet
+        /// </summary>
+        /// <returns></returns>
         public IEnumerator FireBullet()
         {
             
@@ -174,6 +191,10 @@ namespace GunGame.Guns
         }
         #endregion
         #region ReloadTimer
+        /// <summary>
+        /// The timer for the reload
+        /// </summary>
+        /// <returns></returns>
         IEnumerator Reloading()
         {
             reloading = true;

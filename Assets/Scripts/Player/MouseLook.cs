@@ -5,6 +5,9 @@ using UnityEngine;
 [AddComponentMenu("Player/Mouse Look")]
 public class MouseLook : MonoBehaviour
 {
+    /// <summary>
+    /// The axises used for the rotation of the player
+    /// </summary>
     public enum RotationAxis
     {
         MouseH,
