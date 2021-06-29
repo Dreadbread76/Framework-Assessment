@@ -118,11 +118,11 @@ WARN_LOGFILE           =
 #---------------------------------------------------------------------------
 # Configuration options related to the input files
 #---------------------------------------------------------------------------
-INPUT                  = "./../Assets/Scripts/"
+INPUT                  = "./../Assets/Framework-Assessment/"
 INPUT_ENCODING         = UTF-8
 FILE_PATTERNS          = *.cs
 RECURSIVE              = YES
-EXCLUDE                = "./../Assets/BreadAndButter/Testing/"
+EXCLUDE                = "./../Assets/Framework-Assessment/Testing/"
 EXCLUDE_SYMLINKS       = NO
 EXCLUDE_PATTERNS       =
 EXCLUDE_SYMBOLS        =
@@ -160,7 +160,7 @@ IGNORE_PREFIX          =
 # Configuration options related to the HTML output
 #---------------------------------------------------------------------------
 GENERATE_HTML          = YES
-HTML_OUTPUT            = "./../../SpaceGameDreadbread.github.io/"
+HTML_OUTPUT            = "./../../Dreadbread76.github.io/"
 HTML_FILE_EXTENSION    = .html
 HTML_HEADER            =
 HTML_FOOTER            =
